@@ -289,9 +289,6 @@ def reencode_quantifiers(expr, boundvariables, quantifiers):
     free_variables = re.findall('\(declare-fun (\w+) \(\) (Bool)|\(declare-fun (\w+) \(\) \(\_ BitVec (\d+)\)', smt2string)
     free_variables += re.findall('\(declare-const (\w+) (Bool)|\(declare-const (\w+) \(\_ BitVec (\d+)\)', smt2string)
     
-    print(free_variables)
-    exit()
-    
     for fv in free_variables:
         if str(fv).startswith('?'):
             print('Error: Variable starts with "?". Potential for confusion with quantified variables. This case is not handled.')
