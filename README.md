@@ -4,9 +4,9 @@ A translator from SMTLIB2 to QDIMACS. Restricted to the bitvector theory and sti
 
 [SMTLIB2](http://smtlib.cs.uiowa.edu/) is the standard format for Satisfiability Modulo Theory (SMT) solvers and used in many industrial and academic tools. Recent progress in algorithms for Quantified Boolean Formulas (QBF) makes it tempting to run QBF solvers on problems formulated in SMTLIB2 that contain quantifiers. I therefore implemented a translation to [QDIMACS](http://www.qbflib.org/qdimacs.html), the standard format for QBF solvers. 
 
-It turns out it is surprisingly hard to bitblast quantified formulas and maintain a variable mapping. This script is a partial implementation. Using the [python Z3 API](https://z3prover.github.io/api/html/z3.html). Beware that this script is still pretty slow. It may take a couple of seconds to produce formulas. 
+It turns out it is surprisingly hard to bitblast quantified formulas and maintain a variable mapping. This script is a partial implementation using the [python Z3 API](https://z3prover.github.io/api/html/z3.html). The script only understands linear quantifier prefixes (no quantifier trees) and will not necessarily detect quantifiers inside 'Not' or 'Or' operators. Please contribute!
 
-Please contribute!
+Beware that this script is pretty slow. It may take a couple of seconds to produce formulas. (The bottleneck is the extraction of clauses from Z3. Maybe a reimplementation in C# may help.)
 
 ## Usage
 
